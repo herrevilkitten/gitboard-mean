@@ -4,8 +4,8 @@ var Nerd = require('./models/nerds'),
     path = require('path'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google-oauth2').Strategy;
-var GOOGLE_CLIENT_ID = '114100310474.apps.googleusercontent.com',
-    GOOGLE_CLIENT_SECRET = 'uUlb6eR7vVHexBjvnnz77toR',
+var GOOGLE_CLIENT_ID = process.env.GITBOARD_GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET = process.env.GITBOARD_GOOGLE_CLIENT_SECRET,
     GOOGLE_CALLBACK_URL = 'http://localhost:8080/auth/google/callback';
 
 
