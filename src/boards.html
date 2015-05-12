@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head lang="en">
+  <base href="/">
+  <meta charset="UTF-8">
+  <title>GitBoard</title>
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-inverse" ng-controller="NavbarController">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">GitBoard</a>
+      </div>
+
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a target="_self" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{me.name}}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a target="_self" href="auth/google/signout">Sign Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ANGULAR DYNAMIC CONTENT -->
+  <div ng-view></div>
+
+</div>
+<!-- inject:js -->
+<!-- endinject -->
+</body>
+</html>

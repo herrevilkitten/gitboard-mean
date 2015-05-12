@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="MainController as vm">
+
+<head lang="en">
+  <base href="/">
+  <meta charset="UTF-8">
+  <title>GitBoard</title>
+
+  <!-- inject:css -->
+  <!-- endinject -->
+
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Stencil: Node and Angular</a>
+    </div>
+
+    <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+    <ul class="nav navbar-nav">
+      <li><a target="_self" href="http://localhost:8080/auth/google/signin">Sign in with Google</a></li>
+    </ul>
+  </nav>
+
+  <!-- ANGULAR DYNAMIC CONTENT -->
+  <div ng-view></div>
+
+</div>
+<!-- inject:js -->
+<!-- endinject -->
+</body>
+</html>
