@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ng', 'ngRoute']);
+var app = angular.module('app', ['ng', 'ngRoute', 'ui.bootstrap']);
 
 app.constant('config', {
     apiUrl: '../api/'
@@ -11,11 +11,11 @@ app.config(($routeProvider, $locationProvider) => {
             controller: 'MainController'
         })
         .when('/boards', {
-            templateUrl: 'app/boards/dashboard.tpl.html',
+            templateUrl: 'app/board/dashboard.tpl.html',
             controller: 'DashboardController'
         })
         .when('/board/:boardId', {
-            templateUrl: 'app/boards/editor.tpl.html',
+            templateUrl: 'app/board/editor.tpl.html',
             controller: 'EditorController'
         });
     $locationProvider.html5Mode(true);
@@ -26,4 +26,5 @@ register('app')
     .controller('EditorController', EditorController)
     .controller('MainController', MainController)
     .controller('NavbarController', NavbarController)
+    .service('BoardService', BoardService)
     .service('UserService', UserService);

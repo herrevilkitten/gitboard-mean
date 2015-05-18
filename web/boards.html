@@ -21,20 +21,23 @@
         <a class="navbar-brand" href="/">GitBoard</a>
       </div>
 
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a target="_self" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{me.name}}
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-show="me != null" class="btn-group" dropdown>
+          <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
+            <img ng-attr-src="{{me.picture}}" height="32" width="32"/>
+            {{me.name}}
             <span class="caret"></span>
-          </a>
+          </button>
           <ul class="dropdown-menu" role="menu">
-            <li><a target="_self" href="auth/google/signout">Sign Out</a></li>
+            <li><a href="#">Profile</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Sign Out</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </nav>
 
-  <!-- ANGULAR DYNAMIC CONTENT -->
   <div ng-view></div>
 
 </div>

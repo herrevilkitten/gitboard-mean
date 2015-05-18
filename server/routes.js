@@ -1,4 +1,4 @@
-var Nerd = require('./models/nerds'),
+var Board = require('./models/board'),
     User = require('./models/user'),
     express = require('express'),
     path = require('path'),
@@ -110,20 +110,21 @@ function apiRoutes(app) {
         res.json(req.user);
     });
 
-    router.get('/nerds', function(req, res) {
-        console.log('Querying database for all nerds');
-        // use mongoose to get all nerds in the database
-        Nerd.find(function(err, nerds) {
-            console.log('Results:', err, nerds);
+    router.route('/board')
+        .get(function(req, res) {
+            console.log('Querying database for all boards');
+            // use mongoose to get all nerds in the database
+            Board.find(function(err, boards) {
+                console.log('Results:', err, boards);
 
-            // if there is an error retrieving, send the error.
-            // nothing after res.send(err) will execute
-            if (err)
-                res.send(err);
+                // if there is an error retrieving, send the error.
+                // nothing after res.send(err) will execute
+                if (err)
+                    res.send(err);
 
-            res.json(nerds); // return all nerds in JSON format
+                res.json(boards); // return all nerds in JSON format
+            });
         });
-    });
 
     return router;
 }
@@ -135,7 +136,7 @@ function boardRoutes(app) {
 
     router.get('/', function(req, res) {
         console.log('Requesting boards page');
-        res.sendFile(path.join(__dirname, '../public', 'boards.html')); // load our public/index.html file
+        res.sendFile(path.join(__dirname, '../build/web', 'boards.html')); // load our public/index.html file
     });
 
     return router;
@@ -149,6 +150,6 @@ module.exports = function(app) {
     console.log('Setting up default route');
     app.get('/', function(req, res) {
         console.log('Requesting front page');
-        res.sendFile(path.join(__dirname, '../public', 'index.html')); // load our public/index.html file
+        res.sendFile(path.join(__dirname, '../build/web', 'index.html')); // load our public/index.html file
     });
 };
