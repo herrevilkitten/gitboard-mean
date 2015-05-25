@@ -9,10 +9,12 @@ class BoardService {
     }
 
     get(id) {
-        return this.$http.get('/api/board/:id', {
-            params: {
-                id: id
-            }
+        return this.$http.get('/api/board/' + id);
+    }
+
+    create(data) {
+        return this.$http.post('/api/board', {
+            params: data
         });
     }
 }

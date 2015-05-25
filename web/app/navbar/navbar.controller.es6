@@ -1,9 +1,10 @@
 class NavbarController {
     /*@ngInject*/
-    constructor($scope, UserService) {
+    constructor($scope, $log, UserService) {
+        $scope.me = null;
         UserService
-            .get()
-            .then(function(response) {
+            .me()
+            .then(response => {
                 $scope.me = response.data;
             });
     }

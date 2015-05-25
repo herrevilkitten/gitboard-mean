@@ -7,14 +7,16 @@ var ts = require('gulp-typescript');
 var es = require('event-stream');
 var buildDir = './build';
 var destinationDir = buildDir + '/web';
-var path = require('path');
-var map = require('map-stream');
-var del = require('del');
-var server = require('gulp-express');
+var path = require('path'),
+    map = require('map-stream'),
+    del = require('del'),
+    server = require('gulp-express'),
+    jshint = require('gulp-jshint');
 
 gulp.task('clean', function(cb) {
     del([buildDir], cb);
 });
+
 
 gulp.task('scripts', function() {
     var javascripts = gulp.src('./web/**/*.es6')
@@ -61,6 +63,9 @@ gulp.task('index', ['bower', 'scripts', 'styles', 'templates'], function() {
         './bower_components/angular/angular.js',
         './bower_components/angular-route/angular-route.js',
         './bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.js',
+        './bower_components/svg.js/dist/svg.js',
+        './bower_components/svg.path.js/svg.path.js',
+        './bower_components/angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.js',
         './app/**/!(app).js',
         './app/app.js'
     ], {read: false, cwd: destinationDir});
@@ -69,6 +74,7 @@ gulp.task('index', ['bower', 'scripts', 'styles', 'templates'], function() {
         './bower_components/bootstrap/dist/css/bootstrap.min.css',
         './bower_components/angular-ui-bootstrap-bower/ui-bootstrap-csp.css',
         './bower_components/font-awesome/css/font-awesome.css',
+        './bower_components/angular-bootstrap-colorpicker/css/colorpicker.css',
         './styles/**/*.css'
     ], {read: false, cwd: destinationDir});
 

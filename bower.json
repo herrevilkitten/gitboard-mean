@@ -7,6 +7,8 @@
     "animate.css": "latest",
     "angular": "latest",
     "angular-route": "latest",
-    "angular-ui-bootstrap-bower": "~0.13.0"
+    "angular-ui-bootstrap-bower": "~0.13.0",
+    "svg.js": "~1.0.1",
+    "angular-bootstrap-colorpicker": "~3.0.18"
   }
 }

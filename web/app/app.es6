@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ng', 'ngRoute', 'ui.bootstrap']);
+var app = angular.module('app', ['ng', 'ngRoute', 'ui.bootstrap', 'colorpicker.module']);
 
 app.constant('config', {
     apiUrl: '../api/'
@@ -10,7 +10,7 @@ app.config(($routeProvider, $locationProvider) => {
             templateUrl: 'app/main/main.tpl.html',
             controller: 'MainController'
         })
-        .when('/boards', {
+        .when('/board', {
             templateUrl: 'app/board/dashboard.tpl.html',
             controller: 'DashboardController'
         })
@@ -26,5 +26,6 @@ register('app')
     .controller('EditorController', EditorController)
     .controller('MainController', MainController)
     .controller('NavbarController', NavbarController)
+    .controller('CreateBoardModal', CreateBoardModal)
     .service('BoardService', BoardService)
     .service('UserService', UserService);
